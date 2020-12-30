@@ -2,11 +2,14 @@ name: clang-format
 on:
   pull_request:
 jobs:
-  check-format:
+  checks:
     runs-on: ubuntu-latest
+    name: checks
     steps:
       - uses: actions/checkout@v2
-      - uses: tinybeachthor/gitbot-format@releases/v1
+      - name: clang-format
+        id: clang-format
+        uses: tinybeachthor/gitbot-format@releases/v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           config-path: '.clang-format'
