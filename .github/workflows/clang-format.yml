@@ -7,6 +7,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: tinybeachthor/gitbot-format@releases/v1
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        config-path: '.clang-format'
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          config-path: '.clang-format'
