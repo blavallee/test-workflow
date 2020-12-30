@@ -9,6 +9,9 @@ namespace class1 {
 
 class class1 {
             public:
+		    class1() {};
+   int                              method1();
+            void    method2();
 };
 
 } 
