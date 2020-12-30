@@ -8,7 +8,7 @@
 namespace class1 {
 
 class class1 {
-public:
+            public:
 };
 
 } 
