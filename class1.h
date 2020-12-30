@@ -13,5 +13,5 @@ public:
 
 } 
 
-#endif /CLASS1_H/
+#endif //CLASS1_H
 
