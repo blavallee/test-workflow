@@ -8,4 +8,4 @@ jobs:
         id: clang-format
         uses: blavallee/actions@v0.2
       - name: Get the output location
-        run: echp "Output ${{ steps.clang-format.outputs.location }}" 
+        run: echo "Output ${{ steps.clang-format.outputs.location }}" 
