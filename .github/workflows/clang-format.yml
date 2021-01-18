@@ -9,4 +9,4 @@ jobs:
           fetch-depth: 2
       - name: clang-format-step
         id: clang-format
-        uses: blavallee/actions@v0.5
+        uses: blavallee/actions@v0.6
