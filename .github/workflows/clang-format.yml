@@ -1,15 +1,11 @@
-name: clang-format
-on:
-  pull_request:
+on: [push]
 jobs:
-  checks:
+  format-job:
     runs-on: ubuntu-latest
-    name: checks
+    name: A job to run clang-format on your diff
     steps:
-      - uses: actions/checkout@v2
-      - name: clang-format
+      - name: clang-format-step
         id: clang-format
-        uses: tinybeachthor/gitbot-format@releases/v1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          config-path: '.clang-format'
+        uses: blavallee/actions
+      - name: Get the output location
+        run: echp "Output ${{ steps.clang-format.outputs.location }}" 
