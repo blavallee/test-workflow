@@ -6,4 +6,4 @@ jobs:
     steps:
       - name: clang-format-step
         id: clang-format
-        uses: blavallee/actions@v0.4
+        uses: blavallee/actions@v0.5
