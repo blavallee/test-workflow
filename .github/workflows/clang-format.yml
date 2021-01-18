@@ -6,6 +6,4 @@ jobs:
     steps:
       - name: clang-format-step
         id: clang-format
-        uses: blavallee/actions@v0.2
-      - name: Get the output location
-        run: echo "Output ${{ steps.clang-format.outputs.location }}" 
+        uses: blavallee/actions@v0.3
