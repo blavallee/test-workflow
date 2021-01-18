@@ -10,3 +10,5 @@ jobs:
       - name: clang-format-step
         id: clang-format
         uses: blavallee/actions@v0.6
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
