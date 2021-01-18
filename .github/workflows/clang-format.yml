@@ -4,6 +4,7 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to run clang-format on your diff
     steps:
+      - uses: actions/checkout@v2
       - name: clang-format-step
         id: clang-format
         uses: blavallee/actions@v0.5
