@@ -6,6 +6,6 @@ jobs:
     steps:
       - name: clang-format-step
         id: clang-format
-        uses: blavallee/actions
+        uses: blavallee/actions/.
       - name: Get the output location
         run: echp "Output ${{ steps.clang-format.outputs.location }}" 
