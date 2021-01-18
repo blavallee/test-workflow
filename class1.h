@@ -13,6 +13,7 @@ class class1 {
    int                              method1();
             void    method2();
 	    void meth3();
+	    void         method4();
 };
 
 } 
