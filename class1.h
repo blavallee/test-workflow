@@ -14,6 +14,7 @@ class class1 {
             void    method2();
 	    void meth3();
 	    void         method4();
+	   int method5();
 };
 
 } 

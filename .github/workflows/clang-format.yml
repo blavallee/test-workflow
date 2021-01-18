@@ -9,6 +9,8 @@ jobs:
           fetch-depth: 2
       - name: clang-format-step
         id: clang-format
-        uses: blavallee/actions@v0.6
+        uses: blavallee/actions@v0.7
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
+        with:
+          branch-suffix: timestamp
