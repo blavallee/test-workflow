@@ -8,7 +8,8 @@ jobs:
         with:
           repository: blavallee/actions
           token: ${{secrets.COMMIT_TOKEN}}
-          ref: master 
+          ref: master
+          path: ./blavallee-actions 
       - name: clang-format-step
         id: clang-format
         uses: ./blavallee-actions
