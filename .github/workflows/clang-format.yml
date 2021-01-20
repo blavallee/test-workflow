@@ -6,18 +6,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.3
         with:
-          fetch-depth: 2
-      - uses: actions/checkout@v2.3.3
-        with:
           repository: blavallee/actions
-          ref: 6e1e74d9a1c5497f9c1eae5c05a67138998d85d6
-          path: blavallee-actions
-          token: ${{secrets.GitHub_PAT}}
+          ref: master 
+          token: ${{secrets.COMMIT_TOKEN}} 
       - name: clang-format-step
         id: clang-format
         uses: ./blavallee-actions
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
-        with:
-          token: ${{ secrets.COMMIT_TOKEN }}
-          branch-suffix: timestamp
