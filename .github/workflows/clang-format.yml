@@ -9,10 +9,10 @@ jobs:
           fetch-depth: 2
       - uses: actions/checkout@v2.3.3
         with:
-          repository: blavallee/actions@v0.8
+          repository: blavallee/actions
           ref: 6e1e74d9a1c5497f9c1eae5c05a67138998d85d6
           path: blavallee-actions
-          token: ${{secrets.COMMIT_TOKEN}}
+          token: ${{secrets.GitHub_PAT}}
       - name: clang-format-step
         id: clang-format
         uses: ./blavallee-actions
