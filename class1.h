@@ -3,13 +3,18 @@
 
 #pragma once
 
-#include <file1.h>
 
+
+
+
+
+    #include <file1.h>
+ 
 namespace class1 {
  
 class class1 {
-            public:
-	    class1() {};
+         public:
+   class1() {};
    int                              method1();
            void    method2();
     void meth3();
@@ -21,5 +26,5 @@ class class1 {
 
 } 
 
-#endif //CLASS1_H
+        #endif //CLASS1_H
 
