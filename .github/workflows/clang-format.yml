@@ -14,9 +14,9 @@ jobs:
       - name: "Create a PR if changes have been detetcted"
         if: steps.git_clang_format.outputs.changes_detected == 'true'
         run: |
-          git config user.name coveobot
-          git config user.email coveobot@coveo.com
-          git commit --all --message "Clang-format - $(git log -1 --pretty=%B)"
+          git config user.name blavallee 
+          git config user.email blavallee@coveo.com
+          git commit --all --message "Clang-format" -m $(git log -1 --pretty=%B)
           git push origin UpdateTo-${{github.event.inputs.sha}}
 
 
