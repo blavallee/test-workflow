@@ -1,10 +1,23 @@
 on: [push]
 jobs:
-  format-job:
+  format-changeset:
     runs-on: ubuntu-latest
     name: A job to run clang-format on your diff
     steps:
-      - uses: actions/checkout@v2.3.3
+      - name: Checkout
+        uses: actions/checkout@v2.3.3
         with:
           fetch-depth: 2
-      - uses: blavallee/actions@v0.8 
+      - name: "Run git-clang-format"
+        id: git_clang_format
+        uses: blavallee/actions@v0.9
+      - name: "Create a PR if changes have been detetcted"
+        if: steps.git_clang_format.outputs.changes_detected == 'true'
+        run: |
+          git config user.name coveobot
+          git config user.email coveobot@coveo.com
+          git commit --all --message "Clang-format - $(git log -1 --pretty=%B)"
+          git push origin UpdateTo-${{github.event.inputs.sha}}
+
+
+
