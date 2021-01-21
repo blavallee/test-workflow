@@ -17,5 +17,5 @@ jobs:
           git checkout -b ClangFormat-$(git rev-parse HEAD)
           git config user.name blavallee 
           git config user.email blavallee@coveo.com
-          git commit --all --message "Clang-format" -m $(git log -1 --pretty=%B)
+          git commit --all --message "Clang-format" --message "$(git log -1 --pretty=%B)"
           git push origin ClangFormat-$(git rev-parse HEAD)
