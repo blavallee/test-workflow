@@ -10,7 +10,7 @@ jobs:
           fetch-depth: 2
       - name: "Run git-clang-format"
         id: git_clang_format
-        uses: blavallee/actions@v1.5
+        uses: blavallee/actions@v1.6
       - name: Open pull request
         uses: actions/github-script@v3.1.0
         with:
