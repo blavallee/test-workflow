@@ -10,13 +10,4 @@ jobs:
           fetch-depth: 2
       - name: "Run git-clang-format"
         id: git_clang_format
-        uses: blavallee/actions@v1.0
-      - name: "Create a PR if changes have been detetcted"
-        if: steps.git_clang_format.outputs.changes_detected == 'true'
-        run: |
-          git checkout -b ClangFormat-$(git rev-parse HEAD)
-          git config user.name blavallee 
-          git config user.email benoitlavallee@gmail.com
-          ls -al
-          git commit --all --message "Clang-format" --message "$(git log -1 --pretty=%B)"
-          git push origin ClangFormat-$(git rev-parse HEAD)
+        uses: blavallee/actions@v1.1
