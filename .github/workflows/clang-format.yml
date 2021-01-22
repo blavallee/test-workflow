@@ -17,8 +17,8 @@ jobs:
           debug: true
           script: |
              github.pulls.create({
-               owner: context.repo.owner,
-               repo: context.repo.repo,
+               owner: 'blavallee',
+               repo: 'test-workflow',
                head: 'ClangFormat-${{github.event.after}}',
                base: 'test-pr2'
                title: 'Format  ${{github.event.after}}'
