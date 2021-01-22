@@ -10,18 +10,8 @@ jobs:
           fetch-depth: 2
       - name: "Run git-clang-format"
         id: git_clang_format
-        uses: blavallee/actions@v1.7
-      - name: Open pull request
-        uses: actions/github-script@v3.1.0
+        uses: blavallee/actions@v1.8
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
         with:
-          github-token: 'ABCD'
-          script: |
-            github.pulls.create({
-              owner: 'blavallee',
-              repo: 'test-workflow',
-              head: 'ClangFormat-${{github.event.after}}',
-              base: 'test-pr2'
-              title: 'Format  ${{github.event.after}}'
-            })
-
-
+          branch-suffix: short-commit-hash
