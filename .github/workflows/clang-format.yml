@@ -19,7 +19,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               head: 'ClangFormat-${{github.event.after}}',
-              base: '${{github.event.inputs.sha}}'
+              base: '${{github.event.after}}'
               title: 'Format  ${{github.event.after}}'
             })
 

@@ -13,13 +13,13 @@ class  class1 {
        class1() {};
  int                               method1();
      void    method2();
- void meth3();
-        void         method4();
- int method5();
-  int                     method6();
+  void meth3();
+         void         method4();
+  int method5();
+   int                     method6();
+  
+  };
  
- };
-
 } 
     #endif //CLASS1_H
 
