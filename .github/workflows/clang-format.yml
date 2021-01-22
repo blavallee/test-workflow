@@ -10,7 +10,7 @@ jobs:
           fetch-depth: 2
       - name: 'Run clang format'
         run: |
-          sudo apt-get update  && apt-get install --no-install-recommends --assume-yes clang-format
+          sudo apt-get update  && sudo apt-get install --no-install-recommends --assume-yes clang-format
           git clang-format HEAD~
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
