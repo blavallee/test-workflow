@@ -4,6 +4,9 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to run clang-format on your diff
     steps:
+      - name: 'Install'
+        run: |
+          sudo apt install clang-format
       - name: Checkout
         uses: actions/checkout@v2.3.3
         with:
