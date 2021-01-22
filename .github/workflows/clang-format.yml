@@ -19,7 +19,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               head: 'ClangFormat-${{github.event.after}}',
-              base: '${{github.event.after}}'
+              base: 'test-pr2'
               title: 'Format  ${{github.event.after}}'
             })
 
