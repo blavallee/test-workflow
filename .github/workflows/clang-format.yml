@@ -10,4 +10,4 @@ jobs:
           fetch-depth: 2
       - name: "Run git-clang-format"
         id: git_clang_format
-        uses: blavallee/actions@v1.2
+        uses: blavallee/actions@v1.3
