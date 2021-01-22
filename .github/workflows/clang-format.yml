@@ -16,6 +16,7 @@ jobs:
         with:
           debug: true
           script: |
+            console.log(context)
             github.pulls.create({
               owner: context,
               repo: context.repo.repo,
