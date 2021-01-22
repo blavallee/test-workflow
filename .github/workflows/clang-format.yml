@@ -14,14 +14,13 @@ jobs:
       - name: Open pull request
         uses: actions/github-script@v3.1.0
         with:
-          debug: true
           script: |
-             github.pulls.create({
-               owner: 'blavallee',
-               repo: 'test-workflow',
-               head: 'ClangFormat-${{github.event.after}}',
-               base: 'test-pr2'
-               title: 'Format  ${{github.event.after}}'
-             })
+            github.pulls.create({
+              owner: 'blavallee',
+              repo: 'test-workflow',
+              head: 'ClangFormat-${{github.event.after}}',
+              base: 'test-pr2'
+              title: 'Format  ${{github.event.after}}'
+            })
 
 
