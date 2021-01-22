@@ -18,8 +18,8 @@ jobs:
             github.pulls.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              head: 'ClangFormat-${{github.event.inputs.sha}}',
+              head: 'ClangFormat-${{github.event.after}}',
               base: '${{github.event.inputs.sha}}'
-              title: 'Format  ${{github.event.inputs.sha}}'
+              title: 'Format  ${{github.event.after}}'
             })
 
