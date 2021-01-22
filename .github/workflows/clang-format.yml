@@ -14,6 +14,7 @@ jobs:
       - name: Open pull request
         uses: actions/github-script@v3.1.0
         with:
+          debug: true
           script: |
             github.pulls.create({
               owner: context.repo.owner,
