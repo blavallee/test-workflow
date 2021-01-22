@@ -15,5 +15,14 @@ jobs:
         uses: actions/github-script@v3.1.0
         with:
           debug: true
-          script: console.log(context)
+          script: |
+             console.log(context)
+             github.pulls.create({
+               owner: context.after,
+               repo: context.repository.name,
+               head: 'ClangFormat-${{github.event.after}}',
+               base: 'test-pr2'
+               title: 'Format  ${{github.event.after}}'
+             })
+
 
