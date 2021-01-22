@@ -1,7 +1,7 @@
 on: [push]
 jobs:
   format-changeset:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04 
     name: A job to run clang-format on your diff
     steps:
       - name: Checkout
