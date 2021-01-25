@@ -9,7 +9,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.3
         with:
-          fetch-depth: 2
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }} 
       - name: 'Run clang format'
         id: format
         run: |
