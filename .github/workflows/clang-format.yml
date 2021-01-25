@@ -14,6 +14,7 @@ jobs:
         id: format
         run: |
           sudo apt-get update  && sudo apt-get install --no-install-recommends --assume-yes clang-format
+          git show
           git clang-format HEAD~
           if [ -n "$(git status --porcelain)" ]; then
             echo "::set-output name=changes_detected::true";
