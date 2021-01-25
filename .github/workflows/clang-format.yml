@@ -23,9 +23,9 @@ jobs:
       - name: 'Commit changes' 
         if: steps.format.outputs.changes_detected == 'true'
         run: |
-          git checkout -b "clang-format-$(git rev-parse HEAD)"
+          current_sha="$(git rev-parse HEAD)"
+          git checkout -b "clang-format-$current_sha"
           git config user.name coveobot
           git config user.email coveobot@coveo.com
-          git commit --all --message "Clang format on " --message "$(git rev-parse HEAD)"
-          git push origin "clang-format-$(git rev-parse HEAD)"
-
+          git commit --all --message "Clang format on " --message "$current_sha"
+          git push origin "clang-format-$current_sha"
