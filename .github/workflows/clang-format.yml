@@ -16,7 +16,7 @@ jobs:
         run: |
           sudo apt-get update  && sudo apt-get install --no-install-recommends --assume-yes clang-format
           git show
-          git diff -U0 --no-color HEAD..master | /usr/share/clang/clang-format-10/clang-format-diff.py -i -p1
+          git diff -U0 --no-color HEAD master | /usr/share/clang/clang-format-10/clang-format-diff.py -i -p1
           if [ -n "$(git status --porcelain)" ]; then
             echo "::set-output name=changes_detected::true";
           else
