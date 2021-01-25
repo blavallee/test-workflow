@@ -1,4 +1,6 @@
-on: [push]
+on:
+  pull_request:
+    types: [assigned, opened, synchronize, reopened]
 jobs:
   format-changeset:
     runs-on: ubuntu-20.04 
@@ -9,10 +11,21 @@ jobs:
         with:
           fetch-depth: 2
       - name: 'Run clang format'
+        id: format
         run: |
           sudo apt-get update  && sudo apt-get install --no-install-recommends --assume-yes clang-format
           git clang-format HEAD~
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
-        with:
-          branch-suffix: short-commit-hash
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::set-output name=changes_detected::true";
+          else
+            echo "::set-output name=changes_detected::false";
+          fi
+      - name: 'Commit changes' 
+        if: steps.format.outputs.changes_detected == 'true'
+        run: |
+          current_sha="$(git rev-parse HEAD)"
+          git checkout -b "clang-format-$current_sha"
+          git config user.name coveobot
+          git config user.email coveobot@coveo.com
+          git commit --all --message "Clang format on " --message "$current_sha"
+          git push origin "clang-format-$current_sha"
