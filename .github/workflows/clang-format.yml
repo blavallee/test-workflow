@@ -30,3 +30,4 @@ jobs:
           git config user.email coveobot@coveo.com
           git commit --all --message "Clang format on " --message "$current_sha"
           git push origin "clang-format-$current_sha"
+          exit 1
