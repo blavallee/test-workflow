@@ -20,8 +20,12 @@ jobs:
           else
             echo "::set-output name=changes_detected::false";
           fi
-      - name: Create Pull Request
+      - name: 'Commit changes' 
         if: steps.format.outputs.changes_detected == 'true'
-        uses: peter-evans/create-pull-request@v3
-        with:
-          branch-suffix: short-commit-hash
+        run: |
+          git checkout -b "clang-format-$(git rev-parse HEAD)"
+          git config user.name coveobot
+          git config user.email coveobot@coveo.com
+          git commit --all --message "Clang format on " --message "$(git rev-parse HEAD)"
+          git push origin "clang-format-$(git rev-parse HEAD)"
+
