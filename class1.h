@@ -4,10 +4,8 @@
 #pragma once
 
 
-
-
  #include <file1.h>
-   namespace class1 {
+  namespace class1 {
  class class1 {
   public:
      class1() {};
