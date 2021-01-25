@@ -1,4 +1,6 @@
-on: [push]
+on:
+  pull_request:
+    types: [assigned, opened, synchronize, reopened]
 jobs:
   format-changeset:
     runs-on: ubuntu-20.04 
@@ -9,10 +11,18 @@ jobs:
         with:
           fetch-depth: 2
       - name: 'Run clang format'
+        id: format
         run: |
           sudo apt-get update  && sudo apt-get install --no-install-recommends --assume-yes clang-format
           git clang-format HEAD~
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::set-output name=changes_detected::true";
+          else
+            echo "::set-output name=changes_detected::false";
+          fi
       - name: Create Pull Request
+        if: steps.format.outputs.changes_detected == 'true'
         uses: peter-evans/create-pull-request@v3
         with:
           branch-suffix: short-commit-hash
+
