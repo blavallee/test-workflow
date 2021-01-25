@@ -25,4 +25,3 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           branch-suffix: short-commit-hash
-
