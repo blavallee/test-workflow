@@ -41,7 +41,7 @@ jobs:
             github.pulls.create({
               owner: 'blavallee',
               repo: 'test-workflow',
-              head: '{{steps.commit.outputs.new_branch}}',
+              head: '${{steps.commit.outputs.new_branch}}',
               base: context.repo.head,
               title: 'Apply clang-format'
             })
