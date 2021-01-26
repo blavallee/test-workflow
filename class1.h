@@ -4,20 +4,18 @@
 #pragma once
 
  #include <file1.h>
- namespace class1 {
+namespace class1 {
 class class1
- {
+{
 public:
-     class1(){};
+    class1(){};
     int                      method1();
-     void                     method2();
+    void                     method2();
     void                     meth3();
     void                     method4();
     int method5();
      int                     method6();
-  
-  };
+};
 
-  }        // namespace class1
-#endif //CLASS1_H
-
+}  // namespace class1
+#endif  // CLASS1_H
