@@ -25,13 +25,13 @@ jobs:
         id: commit
         if: steps.format.outputs.changes_detected == 'true'
         run: |
-          current_sha="$(git rev-parse HEAD)"
-          git checkout -b "clang-format-$current_sha"
+          new_branch_suffix="${{github.head_ref}}-$(git rev-parse HEAD)"
+          git checkout -b "clang-format-$new_branch_suffix"
           git config user.name coveobot
           git config user.email coveobot@coveo.com
-          git commit --all --message "Clang format on " --message "$current_sha"
-          git push origin "clang-format-$current_sha"
-          echo "::set-output name=new_branch::clang-format-$current_sha"
+          git commit --all --message "Clang format on $new_branch_suffix"
+          git push origin "clang-format-$new_branch_suffix"
+          echo "::set-output name=new_branch::clang-format-$new_branch_suffix"
       - name: Open pull request
         if: steps.format.outputs.changes_detected == 'true'
         uses: actions/github-script@v3.1.0
