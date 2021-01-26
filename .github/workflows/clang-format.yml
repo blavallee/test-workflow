@@ -46,6 +46,12 @@ jobs:
               title: 'Apply clang-format'
             })
             console.log(pr)
+            await github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: pr.url
+            })
       - name: Set the state
         if: steps.format.outputs.changes_detected == 'true'
         run: exit 1
