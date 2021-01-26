@@ -38,13 +38,14 @@ jobs:
         with:
           script: |
             console.log(context)
-            github.pulls.create({
+            const pr = github.pulls.create({
               owner: 'blavallee',
               repo: 'test-workflow',
               head: '${{steps.commit.outputs.new_branch}}',
               base: '${{github.head_ref}}',
               title: 'Apply clang-format'
             })
+            console.log(pr)
       - name: Set the state
         if: steps.format.outputs.changes_detected == 'true'
         run: exit 1
