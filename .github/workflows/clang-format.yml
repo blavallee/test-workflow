@@ -38,12 +38,11 @@ jobs:
         with:
           script: |
             console.log(context)
-            console.log(context.pull_request.head)
             github.pulls.create({
               owner: 'blavallee',
               repo: 'test-workflow',
               head: '${{steps.commit.outputs.new_branch}}',
-              base: '${{github.ref}}',
+              base: '${{github.base_ref}}',
               title: 'Apply clang-format'
             })
       - name: Set the state
