@@ -42,7 +42,7 @@ jobs:
               owner: 'blavallee',
               repo: 'test-workflow',
               head: '${{steps.commit.outputs.new_branch}}',
-              base: '${{github.base_ref}}',
+              base: '${{github.head_ref}}',
               title: 'Apply clang-format'
             })
       - name: Set the state
