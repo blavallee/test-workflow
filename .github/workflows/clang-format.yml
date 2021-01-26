@@ -50,7 +50,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: pr.data.url
+              body: 'Clang-format pull request ' +  pr.data.html_url
             })
       - name: Set the state
         if: steps.format.outputs.changes_detected == 'true'
