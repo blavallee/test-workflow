@@ -38,7 +38,7 @@ jobs:
         with:
           script: |
             console.log(context)
-            const pr = github.pulls.create({
+            const pr = await github.pulls.create({
               owner: 'blavallee',
               repo: 'test-workflow',
               head: '${{steps.commit.outputs.new_branch}}',
