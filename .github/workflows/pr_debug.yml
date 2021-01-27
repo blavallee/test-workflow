@@ -1,7 +1,7 @@
 name: Debug
-  on:
-    pull_request:
-      types: [opened, synchronize, closed]
+on:
+  pull_request:
+    types: [opened, synchronize, closed]
 jobs:
   output-debug:
     runs-on: ubuntu-20.04
